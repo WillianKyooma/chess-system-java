@@ -28,9 +28,10 @@ public class UI {
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
 	public static void clearScreen() {
-		System.out.print("\003[H\033[2J");
-		System.out.flush();
+	    System.out.print("\033[H\033[2J");
+	    System.out.flush();
 	}
+
 	
 	
 	public static ChessPosition readChessPosition(Scanner sc) {
@@ -54,23 +55,20 @@ public class UI {
 			}
 			System.out.println();
 		}
-		System.out.println("  a b c d e f g h");
+		System.out.println("  a b c d e f g h"); 
 	}
 
-    private static void printPiece(ChessPiece piece) {
-		
-    	if (piece == null) {
-            System.out.print("-" );
-        }
-        else {
-            if (piece.getColor() == Color.WHITE) {
-                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
-            }
-            else {
-                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
-            }
-        }
-        System.out.print(" ");
+	private static void printPiece(ChessPiece piece) {
+	    if (piece == null) {
+	        System.out.print("- "); 
+	    } else {
+	        if (piece.getColor() == Color.WHITE) {
+	            System.out.print(ANSI_WHITE + piece + ANSI_RESET + " ");
+	        } else {
+	            System.out.print(ANSI_YELLOW + piece + ANSI_RESET + " ");
+	        }
+	    }
 	}
+
 }
 
